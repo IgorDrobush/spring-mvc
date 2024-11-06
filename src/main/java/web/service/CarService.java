@@ -27,7 +27,7 @@ public class CarService {
         return list;
     }
 
-    public static List<Car> getCars(Integer count) {
+    public List<Car> getCars(Integer count) {
         if (count != null && count <= 5) {
             return carList.subList(0, count);
         } else {
