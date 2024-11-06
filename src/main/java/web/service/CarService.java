@@ -1,11 +1,13 @@
 package web.service;
 
+import org.springframework.stereotype.Service;
 import web.model.Car;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CreateCarList {
+@Service
+public class CarService {
 
     private static final List<Car> carList = createCarList();
 
@@ -25,7 +27,11 @@ public class CreateCarList {
         return list;
     }
 
-    public static List<Car> getCarList() {
-        return carList;
+    public static List<Car> getCars(Integer count) {
+        if (count != null && count <= 5) {
+            return carList.subList(0, count);
+        } else {
+            return  carList;
+        }
     }
 }
